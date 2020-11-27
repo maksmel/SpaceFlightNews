@@ -9,6 +9,9 @@ interface MainApi {
         const val BASE_URL = "https://www.spaceflightnewsapi.net/"
     }
 
-    @GET("api/v2/articles")
+    @GET("api/v2/articles/")
     fun getArticles(): Call<List<Article>>
+
+    @GET("api/v2/blogs/")
+    fun getBlogs(): Call<List<Blog>>
 }

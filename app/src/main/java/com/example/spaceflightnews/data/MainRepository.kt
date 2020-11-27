@@ -19,4 +19,10 @@ class MainRepository {
             .execute()
             .body()
     }
+
+    suspend fun getBlogs() = withContext(coroutineContext) {
+        mainApi.getBlogs()
+            .execute()
+            .body()
+    }
 }

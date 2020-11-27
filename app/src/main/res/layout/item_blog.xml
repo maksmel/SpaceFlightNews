@@ -16,7 +16,7 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/articleTitle"
+            android:id="@+id/blogTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -26,7 +26,7 @@
             tools:text="Sample title"/>
 
         <TextView
-            android:id="@+id/articleSite"
+            android:id="@+id/blogSite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -35,7 +35,7 @@
             tools:text="Sample site"/>
 
         <TextView
-            android:id="@+id/articleDate"
+            android:id="@+id/blogDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -44,7 +44,7 @@
             tools:text="Sample date"/>
 
         <TextView
-            android:id="@+id/articleBody"
+            android:id="@+id/blogBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -52,9 +52,9 @@
             tools:text="Sample text Sample"/>
 
         <ImageView
-            android:id="@+id/articleImage"
+            android:id="@+id/blogImage"
             android:layout_width="350dp"
-            android:layout_height="300dp"/>
+            android:layout_height="350dp"/>
 
     </LinearLayout>
 

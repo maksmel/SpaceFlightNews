@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.spaceflightnews.R
 import com.example.spaceflightnews.data.Article
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_post.view.*
 
 class ArticlesAdapter : RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>() {
@@ -25,6 +26,7 @@ class ArticlesAdapter : RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>(
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         holder.bind(articles[position])
+        Picasso.get().load(articles[position].imageUrl).into(holder.itemView.articleImage)
     }
 
     override fun getItemCount() = articles.size
@@ -34,6 +36,8 @@ class ArticlesAdapter : RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>(
             articleTitle.text = article.title
             articleSite.text = article.newsSite
             articleBody.text = article.summary
+            articleDate.text = article.dateTime.toString()
+
         }
     }
 
