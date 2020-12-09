@@ -1,4 +1,4 @@
-package com.example.spaceflightnews.ui
+package com.example.spaceflightnews.ui.article
 
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +18,17 @@ class ArticlesAdapter : RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>(
         notifyDataSetChanged()
     }
 
+    override fun onViewAttachedToWindow(holder: ArticleViewHolder) {
+        holder.itemView.setOnClickListener {
+            ArticleMainFragment.click(articles[holder.adapterPosition])
+        }
+    }
+
+    override fun onViewDetachedFromWindow(holder: ArticleViewHolder) {
+        holder.itemView.setOnClickListener(null)
+        super.onViewDetachedFromWindow(holder)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_post, parent, false)
@@ -26,7 +37,6 @@ class ArticlesAdapter : RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>(
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         holder.bind(articles[position])
-        Picasso.get().load(articles[position].imageUrl).into(holder.itemView.articleImage)
     }
 
     override fun getItemCount() = articles.size
@@ -34,9 +44,10 @@ class ArticlesAdapter : RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>(
     class ArticleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(article: Article) = itemView.apply {
             articleTitle.text = article.title
-            articleSite.text = article.newsSite
-            articleBody.text = article.summary
+//            articleSite.text = article.newsSite
+//            articleBody.text = article.summary
             articleDate.text = article.dateTime.toString()
+            Picasso.get().load(article.imageUrl).into(articleImage)
 
         }
     }

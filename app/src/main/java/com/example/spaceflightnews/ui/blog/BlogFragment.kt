@@ -1,4 +1,4 @@
-package com.example.spaceflightnews.ui
+package com.example.spaceflightnews.ui.blog
 
 import android.os.Bundle
 import android.view.LayoutInflater

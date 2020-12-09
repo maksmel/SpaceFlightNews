@@ -1,4 +1,4 @@
-package com.example.spaceflightnews.ui
+package com.example.spaceflightnews.ui.blog
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.spaceflightnews.R
 import com.example.spaceflightnews.data.Blog
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_blog.view.*
+import kotlinx.android.synthetic.main.item_post.view.*
 
 class BlogAdapter : RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
 
@@ -20,23 +20,23 @@ class BlogAdapter : RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BlogViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_blog, parent, false)
+            .inflate(R.layout.item_post, parent, false)
         return BlogViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: BlogViewHolder, position: Int) {
         holder.bind(blog[position])
-        Picasso.get().load(blog[position].imageUrl).into(holder.itemView.blogImage)
     }
 
     override fun getItemCount() = blog.size
 
     class BlogViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(blog: Blog) = itemView.apply {
-            blogTitle.text = blog.title
-            blogSite.text = blog.newsSite
-            blogBody.text = blog.summary
-            blogDate.text = blog.dateTime.toString()
+            articleTitle.text = blog.title
+//            articleSite.text = blog.newsSite
+//            articleBody.text = blog.summary
+            articleDate.text = blog.dateTime.toString()
+            Picasso.get().load(blog.imageUrl).into(articleImage)
 
         }
     }

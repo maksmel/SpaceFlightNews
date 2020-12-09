@@ -1,6 +1,7 @@
 package com.example.spaceflightnews.data
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 import java.util.*
 
 data class Article(
@@ -10,7 +11,7 @@ data class Article(
     val summary: String,
     @SerializedName("publishedAt") val dateTime: Date,
     val imageUrl: String
-)
+): Serializable
 
 data class Blog(
     val id: String,
