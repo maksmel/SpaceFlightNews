@@ -27,13 +27,6 @@ class ArticleMainFragment : Fragment(), CoroutineScope {
         return inflater.inflate(R.layout.fragment_article, container, false)
     }
 
-    override fun onStart() {
-        super.onStart()
-        btn.setOnClickListener {
-            APP_ACTIVITY.navController.navigate(R.id.action_feedFragment_to_articlesFragment)
-        }
-    }
-
     companion object {
         fun click(article: Article) {
             val bundle = Bundle()

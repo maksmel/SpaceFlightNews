@@ -20,4 +20,4 @@ data class Blog(
     val summary: String,
     @SerializedName("publishedAt") val dateTime: Date,
     val imageUrl: String
-)
+): Serializable

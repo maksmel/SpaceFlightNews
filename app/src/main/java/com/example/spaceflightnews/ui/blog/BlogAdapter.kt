@@ -18,6 +18,17 @@ class BlogAdapter : RecyclerView.Adapter<BlogAdapter.BlogViewHolder>() {
         notifyDataSetChanged()
     }
 
+    override fun onViewAttachedToWindow(holder: BlogViewHolder) {
+        holder.itemView.setOnClickListener {
+            BlogFragment.click(blog[holder.adapterPosition])
+        }
+    }
+
+    override fun onViewDetachedFromWindow(holder: BlogViewHolder) {
+        holder.itemView.setOnClickListener(null)
+        super.onViewDetachedFromWindow(holder)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BlogViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_post, parent, false)

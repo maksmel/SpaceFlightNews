@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_host"
-    app:startDestination="@id/articleMainFragment">
+    app:startDestination="@id/menuFragment">
 
     <fragment
         android:id="@+id/articleMainFragment"
@@ -11,11 +11,11 @@
         android:label="fragment_feed"
         tools:layout="@layout/fragment_article" >
         <action
-            android:id="@+id/action_feedFragment_to_articlesFragment"
-            app:destination="@id/blogMainFragment" />
-        <action
             android:id="@+id/action_feedFragment_to_articleAllFragment"
             app:destination="@id/articleAllFragment" />
+        <action
+            android:id="@+id/action_articleMainFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/blogMainFragment"
@@ -23,12 +23,40 @@
         android:label="fragment_articles"
         tools:layout="@layout/fragment_blog" >
         <action
-            android:id="@+id/action_articlesFragment_to_feedFragment"
-            app:destination="@id/articleMainFragment" />
+            android:id="@+id/action_blogMainFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_blogMainFragment_to_blogAllFragment"
+            app:destination="@id/blogAllFragment" />
     </fragment>
     <fragment
         android:id="@+id/articleAllFragment"
         android:name="com.example.spaceflightnews.ui.article.ArticleAllFragment"
         android:label="fragment_article_all"
-        tools:layout="@layout/fragment_article_all" />
+        tools:layout="@layout/fragment_article_all" >
+        <action
+            android:id="@+id/action_articleAllFragment_to_articleMainFragment"
+            app:destination="@id/articleMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.spaceflightnews.ui.menu.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_articleMainFragment"
+            app:destination="@id/articleMainFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_blogMainFragment"
+            app:destination="@id/blogMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/blogAllFragment"
+        android:name="com.example.spaceflightnews.ui.blog.BlogAllFragment"
+        android:label="fragment_blog_all"
+        tools:layout="@layout/fragment_blog_all" >
+        <action
+            android:id="@+id/action_blogAllFragment_to_blogMainFragment"
+            app:destination="@id/blogMainFragment" />
+    </fragment>
 </navigation>
